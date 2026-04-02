@@ -1,13 +1,14 @@
 package com.example.project.entities;
 
-import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.security.oauth2.core.AuthorizationGrantType;
 import org.springframework.security.oauth2.core.ClientAuthenticationMethod;
 import org.springframework.security.oauth2.server.authorization.client.RegisteredClient;
+import org.springframework.security.oauth2.server.authorization.settings.OAuth2TokenFormat;
 
+import java.time.Duration;
 import java.util.List;
 import java.util.Set;
 import java.util.function.Consumer;
@@ -27,6 +28,9 @@ public class Client {
 
     private String secret;
 
+    @OneToOne(mappedBy = "client", cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    private TokenSettings tokenSettings;
+
     @OneToMany(mappedBy = "client", cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     private List<AuthenticationMethod> authenticationMethods;
 
@@ -39,16 +43,22 @@ public class Client {
     @OneToMany(mappedBy = "client", cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     private List<Scope> scopes;
 
+
     public static RegisteredClient mapToRegisteredClient(Client client) {
         RegisteredClient registeredClient =
                 RegisteredClient
-                        .withId(String.valueOf(client.getId()))
-                        .clientId(client.getClientId())
+                        .withId(String.valueOf(client.getId())) //imperative to set id as string as RegisteredClient requires it
+                        .clientId(client.getClientId()) //imperative to set client id as string as RegisteredClient requires it
                         .clientSecret(client.getSecret())
-                        .clientAuthenticationMethods(authenticationMethods(client.getAuthenticationMethods()))
-                        .authorizationGrantTypes(authorizationGrantType(client.getGrantType()))
-                        .redirectUris(redirectUrls(client.getRedirectUrls()))
+                        .clientAuthenticationMethods(authenticationMethods(client.getAuthenticationMethods())) //imperative to set authentication methods as string as RegisteredClient requires it
+                        .authorizationGrantTypes(authorizationGrantType(client.getGrantType())) //imperative to set grant types as string as RegisteredClient requires it
+                        .redirectUris(redirectUrls(client.getRedirectUrls())) //imperatrive to set redirect urls as string as RegisteredClient requires it
                         .scopes(scopes(client.getScopes()))
+                        .tokenSettings(org.springframework.security.oauth2.server.authorization.settings.TokenSettings
+                                .builder()
+                                .accessTokenTimeToLive(Duration.ofHours(client.getTokenSettings().getAccessTokenTTL()))
+                                .accessTokenFormat(new OAuth2TokenFormat(client.getTokenSettings().getType()))
+                                .build())
                         .build();
 
         return registeredClient;

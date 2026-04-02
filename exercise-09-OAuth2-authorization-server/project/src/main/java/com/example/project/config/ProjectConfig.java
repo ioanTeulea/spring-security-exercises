@@ -7,6 +7,7 @@ import org.springframework.http.MediaType;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configurers.oauth2.server.authorization.OAuth2AuthorizationServerConfigurer;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -24,23 +25,6 @@ import org.springframework.security.web.util.matcher.MediaTypeRequestMatcher;
 @EnableMethodSecurity
 public class ProjectConfig {
 
-    @Bean
-    public UserDetailsService userDetailsService() {
-        InMemoryUserDetailsManager manager = new InMemoryUserDetailsManager();
-
-        UserDetails user1 = User.withUsername("john")
-                .password("12345")
-                .roles("ADMIN")
-                .build();
-        UserDetails user2 = User.withUsername("jane")
-                .password("12345")
-                .roles("USER")
-                .build();
-        manager.createUser(user1);
-        manager.createUser(user2);
-
-        return manager;
-    }
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -48,17 +32,25 @@ public class ProjectConfig {
     }
 
 
+
     @Bean
     @Order(1)
     public SecurityFilterChain asFilterChain(HttpSecurity http) throws Exception {
-        http.oauth2AuthorizationServer((authorizationServer) -> authorizationServer
-                .oidc(Customizer.withDefaults())
 
-        );
-        http.exceptionHandling(c->c.defaultAuthenticationEntryPointFor(
-                new LoginUrlAuthenticationEntryPoint("/login"),
-                new MediaTypeRequestMatcher(MediaType.TEXT_HTML)
-        ));
+        var authorizationServerConfigurer = new OAuth2AuthorizationServerConfigurer();
+
+        http
+                .securityMatcher(authorizationServerConfigurer.getEndpointsMatcher())
+                .with(authorizationServerConfigurer, configurer ->
+                        configurer.oidc(Customizer.withDefaults())
+                )
+                .exceptionHandling(c -> c.defaultAuthenticationEntryPointFor(
+                        new LoginUrlAuthenticationEntryPoint("/login"),
+                        new MediaTypeRequestMatcher(MediaType.TEXT_HTML)
+                ))
+                .authorizeHttpRequests(auth -> auth.anyRequest().authenticated());
+
+
         return http.build();
     }
 

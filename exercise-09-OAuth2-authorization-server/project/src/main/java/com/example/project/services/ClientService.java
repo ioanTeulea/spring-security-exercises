@@ -53,17 +53,16 @@ public class ClientService implements RegisteredClientRepository {
     @Override
     public RegisteredClient findById(String id) {
         Optional<Client> client=clientRepository.findById(Integer.parseInt(id));
-        client.map(Client::mapToRegisteredClient)
+       return client.map(Client::mapToRegisteredClient)
                 .orElseThrow(()->new RuntimeException("Client not found"));
-        return null;
 
     }
 
     @Override
     public RegisteredClient findByClientId(String clientId) {
         Optional<Client> client=clientRepository.findByClientId(clientId);
-        client.map(Client::mapToRegisteredClient)
+        return client.map(Client::mapToRegisteredClient)
                 .orElseThrow(()->new RuntimeException("Client not found"));
-        return null;
+
     }
 }
