@@ -5,18 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3f03817a-70b3-4377-9cba-0a5a0dd89f1b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/resource_server/config/SecurityConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/example/resource_server/controllers/DemoController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../exercise-09-OAuth2-authorization-server/project/src/main/java/com/example/project/entities/Authority.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../exercise-09-OAuth2-authorization-server/project/src/main/java/com/example/project/entities/TokenSettings.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../exercise-09-OAuth2-authorization-server/project/src/main/java/com/example/project/entities/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../exercise-09-OAuth2-authorization-server/project/src/main/java/com/example/project/model/SecurityUser.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../exercise-09-OAuth2-authorization-server/project/src/main/java/com/example/project/repositories/UserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../../exercise-09-OAuth2-authorization-server/project/src/main/java/com/example/project/services/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../exercise-09-OAuth2-authorization-server/project/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../exercise-09-OAuth2-authorization-server/project/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../exercise-09-OAuth2-authorization-server/project/src/main/java/com/example/project/config/ProjectConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../exercise-09-OAuth2-authorization-server/project/src/main/java/com/example/project/config/ProjectConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../exercise-09-OAuth2-authorization-server/project/src/main/java/com/example/project/entities/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../exercise-09-OAuth2-authorization-server/project/src/main/java/com/example/project/entities/Client.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../exercise-09-OAuth2-authorization-server/project/src/main/java/com/example/project/services/ClientService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../exercise-09-OAuth2-authorization-server/project/src/main/java/com/example/project/services/ClientService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,18 +27,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "ioanTeulea"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;ioanTeulea&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/ioanTeulea/spring-security-exercises",
-    "accountId": "5be8da03-abea-4788-8ab7-077975464cb4"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/ioanTeulea/spring-security-exercises&quot;,
+    &quot;accountId&quot;: &quot;5be8da03-abea-4788-8ab7-077975464cb4&quot;
   }
-}]]></component>
+}</component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
@@ -57,9 +46,9 @@
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 7
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
   <component name="ProjectId" id="3BoZOgQIjhOLCtZN12PhBXtAMVb" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -76,6 +65,7 @@
     "Spring Boot.ResourceServerApplication.executor": "Run",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/Master/ISem2/Spring Security/exercise-09-OAuth2-authorization-server/resource_server",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -110,6 +100,8 @@
       <option name="presentableId" value="Default" />
       <updated>1775157354566</updated>
       <workItem from="1775157355663" duration="1991000" />
+      <workItem from="1775232904040" duration="440000" />
+      <workItem from="1775244464894" duration="36000" />
     </task>
     <servers />
   </component>
